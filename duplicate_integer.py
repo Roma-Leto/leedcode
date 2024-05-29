@@ -15,9 +15,9 @@ from typing import List
 
 class Solution:
     def hasDuplicate(self, nums: List[int]) -> bool:
-        string = ''.join(str(nums))
+        hashset = set()
         for i in nums:
-            if string.count(str(i)) > 1:
+            if i in hashset:
                 return True
+            hashset.add(i)
         return False
-
