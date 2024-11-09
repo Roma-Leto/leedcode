@@ -24,17 +24,15 @@ from typing import List
 
 
 class Solution:
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+    def top_k_frequent(self, nums: List[int], k: int) -> List[int]:
         hashlist = dict()
         for item in nums:
             if None == hashlist.get(item):
                 hashlist.setdefault(item, 1)
             else:
                 hashlist[item] += 1
-        print(hashlist)
         dict_max = sorted(hashlist.items(), key=lambda x: x[1], reverse=True)
-        print(dict_max)
-        return print([x[0] for x in dict_max[:k]])  # Выводит: ['c', 'b']
+        return [x[0] for x in dict_max[:k]]
 
 
 if __name__ == '__main__':
@@ -45,7 +43,5 @@ if __name__ == '__main__':
         i = random.randint(1, 100)
         nums.append(i)
 
-    print(nums)
-
-    asd = Solution()
-    print(asd.topKFrequent(nums=nums, k=k))
+    exam = Solution()
+    print(exam.topKFrequent(nums=nums, k=k))
